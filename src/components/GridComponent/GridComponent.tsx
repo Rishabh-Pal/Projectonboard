@@ -108,6 +108,7 @@ const GridComponent = () => {
           <Row style={{ flex: 1, height: "100vh"}}>
             <Col size={4} style={{ borderRight: "2px solid #ccc"}}>
               <GridHead>List</GridHead>
+              {/* // grid */}
               {activeSection === "contact" ? (
                 <div>
                   {contacts?.map((data: GetAllContacts) => (
