@@ -25,7 +25,7 @@ const ContactList: React.FC<ContactlistProps> = ({ data, onArrowClick }) => {
   };
 
   return (
-    <Container>
+    <Container >
       <ContactCard>
         <Avatar src={AssetIcons.Avatar} alt="avatar" />
         <div className="nohover" style={Onhover}>

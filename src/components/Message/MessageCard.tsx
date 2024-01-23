@@ -31,7 +31,7 @@ const MessageCard = () => {
   }
 
   return (
-    <Container style={{ height: "calc(100vh - 140px)", overflowY: "auto" }}>
+    <Container style={{ height: "100vh", overflowY: "auto", }}>
       <div>
         {messages?.map((message, i) => (
           <StyledMessageCard key={i}>

@@ -51,6 +51,7 @@ export const StyledMessageCard = styled.div`
   padding: 15px;
   border: 1px solid ${themePalette.colors.primarywhite};
   border-radius: 8px;
+  background-color: ${themePalette.colors.butwhite};
   box-shadow: 0px 0px 10px ${themePalette.colors.boxshadow};
-  margin: 0px 0px;
+  margin: 10px 0px;
 `;

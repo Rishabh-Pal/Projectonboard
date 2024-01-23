@@ -1,17 +1,25 @@
-import  {useEffect, useState } from "react";
-import {Grid, Col, Row} from "@zendeskgarden/react-grid";
+import { useEffect, useState } from "react";
+import { Grid, Col, Row } from "@zendeskgarden/react-grid";
 import ContactInfo from "../Contacts/ContactInfo/ContactInfo";
 import ContactCompose from "../Contacts/ContactCompose/ContactCompose";
 import MessageCard from "../Message/MessageCard";
-import themePalette from "../../theme/theme"; 
+import themePalette from "../../theme/theme";
 import { getApis } from "../../services";
 import { GetAllContacts } from "../../typing";
 import ContactList from "../Contacts/ContactList/ContactList";
-import { GridHead, Head, Header, Heading, Menu, SideStyle, StyledMenuItem } from "./GridCompStyle";
+import {
+  GridHead,
+  Head,
+  Header,
+  Heading,
+  Menu,
+  SideStyle,
+  Span,
+  StyledMenuItem,
+} from "./GridCompStyle";
 import AssetIcons from "../../assets";
- 
 
-const GridComponent  = () => {
+const GridComponent = () => {
   const [activeSection, setActiveSection] = useState("contact");
   const [infoColumnVisible, setInfoColumnVisible] = useState(false);
   const [composeVisible, setComposeVisible] = useState(false);
@@ -49,37 +57,42 @@ const GridComponent  = () => {
       } catch (error) {
         console.error("Error fetching contacts:", error);
       }
-    }; 
+    };
     fetchContacts();
   }, []);
   console.log(contacts, ": all contacts");
   return (
-    <Grid style={{ overflowY: "hidden" }}>
-      <Row>
-        <Col
-          size={2}
+    <Grid
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        overflowY: "hidden",
+      }}
+    >
+      <Row  >
+        <Col size={2}
           style={{
             backgroundColor: themePalette.colors.primarywhite,
-            height: "100vh",
+            height: "100vh", 
           }}
         >
           <SideStyle>
-            <Menu>
-              Menu
-            </Menu>
+            <Menu>Menu</Menu>
             <StyledMenuItem
               active={activeSection === "contact"}
               onClick={() => handleSectionChange("contact")}
             >
               <img src={AssetIcons.User} alt="u" />
-              Contacts
+              <Span>Contacts</Span>
+              
             </StyledMenuItem>
             <StyledMenuItem
               active={activeSection === "messages"}
               onClick={() => handleSectionChange("messages")}
             >
               <img src={AssetIcons.MessageIcon} alt="m" />
-              Messages
+              <Span>Messages</Span>
             </StyledMenuItem>
           </SideStyle>
         </Col>
@@ -89,14 +102,12 @@ const GridComponent  = () => {
               <Head>
                 {activeSection === "contact" ? "Contacts" : "Messages"}
               </Head>
-              <Header/>
+              <Header />
             </Heading>
           </Row>
-          <Row>
-            <Col style={{ borderRight: "2px solid #ccc" ,overflowY: "auto"}}>
-              <GridHead>
-                List
-              </GridHead>
+          <Row style={{ flex: 1 }}>
+            <Col style={{ borderRight: "2px solid #ccc", height: "100vh" }}>
+              <GridHead>List</GridHead>
               {activeSection === "contact" ? (
                 <div>
                   {contacts?.map((data: GetAllContacts) => (
@@ -117,12 +128,12 @@ const GridComponent  = () => {
                 </div>
               )}
             </Col>
-            <Col style={{ borderRight: `2px solid ${themePalette.colors.border}` , overflowY: "auto"}}>
+            <Col
+              style={{ borderRight: `2px solid ${themePalette.colors.border}` }}
+            >
               {infoColumnVisible && selectedContact && (
                 <>
-                  <GridHead>
-                    Info
-                  </GridHead>
+                  <GridHead>Info</GridHead>
                   <div>
                     <ContactInfo
                       isVisible={infoColumnVisible}
@@ -133,12 +144,10 @@ const GridComponent  = () => {
                 </>
               )}
             </Col>
-            <Col style={{overflowY: "auto"}}>
+            <Col>
               {composeVisible && (
                 <div>
-                  <GridHead>
-                    Compose
-                  </GridHead>
+                  <GridHead>Compose</GridHead>
                   <div>
                     <ContactCompose
                       isVisible={composeVisible}

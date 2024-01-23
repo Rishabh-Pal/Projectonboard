@@ -16,6 +16,7 @@ const themePalette = {
     dates: "#313131",
     listhover: "rgba(208, 255, 216, 0.38)",
     primarywhite: "#FFFFFF",
+    primarygrey: "#F5F5F5",
     border: "#ccc",
     boxshadow: "rgba(159, 159, 159, 0.25)"
   },

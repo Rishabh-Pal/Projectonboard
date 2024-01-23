@@ -4,6 +4,7 @@ import themePalette from "../../../theme/theme";
 export const Container = styled.div`
   display: flex;
   justify-content: center; 
+  overflow-y: auto;
 `;
 
 export const ContactCard = styled.div`
