@@ -105,8 +105,8 @@ const GridComponent = () => {
               <Header />
             </Heading>
           </Row>
-          <Row style={{ flex: 1 }}>
-            <Col style={{ borderRight: "2px solid #ccc", height: "100vh" }}>
+          <Row style={{ flex: 1, height: "100vh"}}>
+            <Col size={4} style={{ borderRight: "2px solid #ccc"}}>
               <GridHead>List</GridHead>
               {activeSection === "contact" ? (
                 <div>
@@ -128,10 +128,10 @@ const GridComponent = () => {
                 </div>
               )}
             </Col>
-            <Col
+            {infoColumnVisible && selectedContact && (
+            <Col size={4}
               style={{ borderRight: `2px solid ${themePalette.colors.border}` }}
             >
-              {infoColumnVisible && selectedContact && (
                 <>
                   <GridHead>Info</GridHead>
                   <div>
@@ -142,10 +142,10 @@ const GridComponent = () => {
                     />
                   </div>
                 </>
-              )}
             </Col>
-            <Col>
+              )}
               {composeVisible && (
+            <Col size={4}>
                 <div>
                   <GridHead>Compose</GridHead>
                   <div>
@@ -155,8 +155,8 @@ const GridComponent = () => {
                     />
                   </div>
                 </div>
-              )}
             </Col>
+              )}
           </Row>
         </Col>
       </Row>
