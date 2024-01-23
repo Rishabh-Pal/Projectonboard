@@ -4,7 +4,7 @@ import themePalette from "../../theme/theme";
 
 export const SideStyle = styled.div`
   justify-content: "center";
-  @media (max-width: 768px) { 
+  @media (max-width: 768px) {
     width: 100%;
   }
 `;
@@ -29,6 +29,37 @@ export const StyledMenuItem = styled.div<StyledMenuItemProps>`
   ${(props) =>
     props.active &&
     css`
-      background-color: ${themePalette["primary-gray"]};
+      background-color: ${themePalette.colors.bgbutgrey};
     `}
 `;
+
+export const Menu = styled.div`
+  text-align: left;
+  margin: 20px 20px;
+  font-size: 32px;
+  font-weight: 700;
+`;
+
+export const Heading = styled.div`
+  width: 100%;
+  text-align: left;
+`
+
+export const Head = styled.div`
+  margin-left: 20px;
+  margin: 20px;
+  font-size: 32px;
+  font-weight: 600;
+`;
+
+export const Header = styled.div`
+  border: 2px solid ${themePalette.colors.header};
+`
+export const GridHead = styled.div`
+  font-size: 20px;
+  margin-left:  20px;
+  margin: 20px;
+  font-weight: boold;
+  text-align: left;
+  color: ${themePalette.colors.head};
+`

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getApis } from "../../services";
-import { Container, StyledMessageCard } from "./MessageStyle";
+import { Container, StyledMessageCard, MessageHead, Avatar, SenderName, OtpInfo, TimeStamp } from "./MessageStyle";
 import { GetAllMessage } from "../../typing"; 
 import AssetIcons from "../../assets";
+import {format } from "date-fns";
 
 const MessageCard = () => {
   const [messages, setMessages] = useState<GetAllMessage[]>();
@@ -13,6 +14,7 @@ const MessageCard = () => {
       try {
         const messagesData = await getApis.getAllMessages(); 
         const sortedMessages = messagesData?.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+        console.log(sortedMessages)
         setMessages(sortedMessages);
         setLoading(false);
       } catch (error) {
@@ -33,14 +35,14 @@ const MessageCard = () => {
       <div>
         {messages?.map((message, i) => (
           <StyledMessageCard key={i}>
-            <div className="message-header">
-              <img src={AssetIcons.Avatar} alt="avatar" className="avatar" />
-              <div className="sender-info">
-                <div className="sender-name">Rishabh</div>
-                <div className="otp-info">Text: {message?.text}</div>
+            <MessageHead  >
+              <Avatar src={AssetIcons.Avatar} alt="avatar"  />
+              <div >
+                <SenderName  >Rishabh</SenderName>
+                <OtpInfo  >Text: {message?.text.length > 15 ? message?.text.slice(0, 15) + "..." : message?.text}</OtpInfo>
               </div>
-            </div>
-            <div className="timestamp">{message?.created_at}</div>
+            </MessageHead>
+            <TimeStamp  >{format(new Date(message?.created_at), "h:mm a do MMMM yyyy")}</TimeStamp>
           </StyledMessageCard>
         ))}
       </div>

@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import themePalette from "../../../theme/theme";
  
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: center; 
 `;
 
 export const ContactCard = styled.div`
@@ -10,10 +11,11 @@ export const ContactCard = styled.div`
   width: 279px;
   height: 76px;
   align-items: center;
+  background-color: ${themePalette.colors.butwhite};
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid ${themePalette.colors.border};;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(159, 159, 159, 0.25);
+  box-shadow: 0px 0px 10px ${themePalette.colors.boxshadow};
   margin: 10px 0px;
   cursor: pointer;  
 
@@ -25,15 +27,15 @@ export const ContactCard = styled.div`
     .hover {
       display: flex;
     }
-    background-color: rgba(208, 255, 216, 0.38);
+    background-color: ${themePalette.colors.listhover};
   }
 `;
 
 export const Avatar = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+height: 54px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-left: 10px;
 `;
 
 export const Name = styled.span`

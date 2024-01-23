@@ -45,11 +45,10 @@ const ContactCompose: React.FC<ContactComposeProps> = ({ isVisible, id }) => {
           type="text"
           value={message}
           placeholder="Hi, Your OTP is: 12345"
-          onChange={(e) => setMessage(e.target.value)}
-          style={{ color: themePalette["mes-text-gray"] }}
+          onChange={(e) => setMessage(e.target.value)} 
         />
         <ComposeFooter>
-          <GenerateOTP style={{ color: themePalette["primary-blue"] }}>
+          <GenerateOTP style={{ color: themePalette.colors.primblue }}>
             Generate another OTP
           </GenerateOTP>
           <SendButton onClick={handleSend}>

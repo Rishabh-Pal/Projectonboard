@@ -4,6 +4,7 @@ import themePalette from "../../../theme/theme";
 export const Container = styled.div<{ isVisible: boolean }>`
   display: ${(props) => (props.isVisible ? "flex" : "none")};
   justify-content: center;
+
 `;
 
 export const ContactInfoWrapper = styled.div`
@@ -55,7 +56,7 @@ export const DetailItem = styled.div`
 `;
 
 export const Detailhead = styled.div` 
-color: #858585;
+color: ${themePalette.colors.InfoTextgrey}
 `
 
 export const SendMessageButton = styled.button`
@@ -69,8 +70,8 @@ export const SendMessageButton = styled.button`
   right: 20px;
   width: 181px;
   height: 43px;
-  background-color: ${themePalette["message-green"]};
-  color: ${themePalette["button-white"]};
+  background-color: ${themePalette.colors.butgreen};
+  color: ${themePalette.colors.butwhite};
   border: none;
   border-radius: 8px;
   cursor: pointer;

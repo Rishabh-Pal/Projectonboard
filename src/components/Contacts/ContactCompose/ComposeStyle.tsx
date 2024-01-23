@@ -14,16 +14,15 @@ export const ContactComposeWrapper = styled.div`
 export const ComposeInput = styled.input`
   border: none;
   border-radius: 12px;
-  width: 100%;
+  width: 279px;
   font-size: 20px;
-  height: 93px;
-  display: flex;
-  align-items: start;
-  flex-direction: column;
+  font-family: Montserrat;
+  height: 93px; 
+  align-items: start; 
+  color: ${themePalette.colors.palceholder};
   padding: 10px;
-  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.25);
-  text-align: left;
-  vertical-align: top;
+  box-shadow: 0px 2px 8px 0px ${themePalette.colors.boxshadow};
+  text-align: left; 
 `;
 
 export const ComposeFooter = styled.div`
@@ -54,8 +53,8 @@ export const SendButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${themePalette["button-white"]};
-  background-color: ${themePalette["message-green"]};
+  color: ${themePalette.colors.butwhite};
+  background-color: ${themePalette.colors.butgreen};
 `;
 
 export const SendIcon = styled.img`

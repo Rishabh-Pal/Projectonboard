@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import  {useEffect, useState } from "react";
 import {Grid, Col, Row} from "@zendeskgarden/react-grid";
 import ContactInfo from "../Contacts/ContactInfo/ContactInfo";
 import ContactCompose from "../Contacts/ContactCompose/ContactCompose";
@@ -7,11 +7,11 @@ import themePalette from "../../theme/theme";
 import { getApis } from "../../services";
 import { GetAllContacts } from "../../typing";
 import ContactList from "../Contacts/ContactList/ContactList";
-import { SideStyle, StyledMenuItem } from "./GridCompStyle";
+import { GridHead, Head, Header, Heading, Menu, SideStyle, StyledMenuItem } from "./GridCompStyle";
 import AssetIcons from "../../assets";
  
 
-const GridComponent: React.FC = () => {
+const GridComponent  = () => {
   const [activeSection, setActiveSection] = useState("contact");
   const [infoColumnVisible, setInfoColumnVisible] = useState(false);
   const [composeVisible, setComposeVisible] = useState(false);
@@ -59,21 +59,14 @@ const GridComponent: React.FC = () => {
         <Col
           size={2}
           style={{
-            backgroundColor: themePalette["primary-white"],
+            backgroundColor: themePalette.colors.primarywhite,
             height: "100vh",
           }}
         >
           <SideStyle>
-            <div
-              style={{
-                textAlign: "left",
-                margin: "20px 20px",
-                fontSize: "32px",
-                fontWeight: "700",
-              }}
-            >
+            <Menu>
               Menu
-            </div>
+            </Menu>
             <StyledMenuItem
               active={activeSection === "contact"}
               onClick={() => handleSectionChange("contact")}
@@ -92,38 +85,18 @@ const GridComponent: React.FC = () => {
         </Col>
         <Col>
           <Row>
-            <div
-              className="heading"
-              style={{ width: "100%", textAlign: "left" }}
-            >
-              <div
-                style={{
-                  marginLeft: "20px",
-                  margin: "20px",
-                  fontSize: "32px",
-                  fontWeight: "600",
-                }}
-              >
+            <Heading>
+              <Head>
                 {activeSection === "contact" ? "Contacts" : "Messages"}
-              </div>
-              <div style={{ border: "2px solid #d9d9d9" }}></div>
-            </div>
+              </Head>
+              <Header/>
+            </Heading>
           </Row>
           <Row>
             <Col style={{ borderRight: "2px solid #ccc" ,overflowY: "auto"}}>
-              <div
-                className="grid-head"
-                style={{
-                  fontSize: "20px",
-                  marginLeft: "20px",
-                  margin: "20px",
-                  fontWeight: "bold",
-                  textAlign: "left",
-                  color: themePalette["hed-text-gray"],
-                }}
-              >
+              <GridHead>
                 List
-              </div>
+              </GridHead>
               {activeSection === "contact" ? (
                 <div>
                   {contacts?.map((data: GetAllContacts) => (
@@ -144,22 +117,12 @@ const GridComponent: React.FC = () => {
                 </div>
               )}
             </Col>
-            <Col style={{ borderRight: "2px solid #ccc" , overflowY: "auto"}}>
+            <Col style={{ borderRight: `2px solid ${themePalette.colors.border}` , overflowY: "auto"}}>
               {infoColumnVisible && selectedContact && (
                 <>
-                  <div
-                    className="grid-head"
-                    style={{
-                      fontSize: "20px",
-                      marginLeft: "20px",
-                      margin: "20px",
-                      fontWeight: "bold",
-                      textAlign: "left",
-                      color: themePalette["hed-text-gray"],
-                    }}
-                  >
+                  <GridHead>
                     Info
-                  </div>
+                  </GridHead>
                   <div>
                     <ContactInfo
                       isVisible={infoColumnVisible}
@@ -173,19 +136,9 @@ const GridComponent: React.FC = () => {
             <Col style={{overflowY: "auto"}}>
               {composeVisible && (
                 <div>
-                  <div
-                    className="grid-head"
-                    style={{
-                      fontSize: "20px",
-                      marginLeft: "20px",
-                      margin: "20px",
-                      fontWeight: "bold",
-                      textAlign: "left",
-                      color: themePalette["hed-text-gray"],
-                    }}
-                  >
+                  <GridHead>
                     Compose
-                  </div>
+                  </GridHead>
                   <div>
                     <ContactCompose
                       isVisible={composeVisible}
